@@ -5,6 +5,8 @@
 'use strict';
 
 var React = require('react-native');
+var WelcomeView = require('./WelcomeView');
+
 var {
   AppRegistry,
   StyleSheet,
@@ -12,21 +14,15 @@ var {
   View,
 } = React;
 
-var WelcomeView = React.createClass({
-  render: function() {
-    return (
-      <Text style={styles.welcome}>
-        Welcome to react native!
-      </Text>
-    );
-  }
-});
 
 var TodoReact = React.createClass({
   render: function() {
+    var name = 'steve';
     return (
       <View style={styles.container}>
-        <WelcomeView></WelcomeView>
+        <WelcomeView message={name}></WelcomeView>
+        <WelcomeView message="Atticus"></WelcomeView>
+
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
@@ -45,11 +41,6 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
   instructions: {
     textAlign: 'center',
