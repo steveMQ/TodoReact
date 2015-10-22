@@ -6,6 +6,7 @@
 
 var React = require('react-native');
 var WelcomeView = require('./WelcomeView');
+var TodoList = require('./TodoList');
 
 var {
   AppRegistry,
@@ -17,11 +18,12 @@ var {
 
 var TodoReact = React.createClass({
   render: function() {
-    var name = 'steve';
+    var name = function (param) {
+      return 'steve ' + param;
+    }
     return (
       <View style={styles.container}>
         <WelcomeView message={name}></WelcomeView>
-        <WelcomeView message="Atticus"></WelcomeView>
 
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
@@ -30,6 +32,8 @@ var TodoReact = React.createClass({
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+
+        <TodoList></TodoList>
       </View>
     );
   }
