@@ -12,13 +12,21 @@ var {
   View,
 } = React;
 
+var WelcomeView = React.createClass({
+  render: function() {
+    return (
+      <Text style={styles.welcome}>
+        Welcome to react native!
+      </Text>
+    );
+  }
+});
+
 var TodoReact = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+        <WelcomeView></WelcomeView>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
