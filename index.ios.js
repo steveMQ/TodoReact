@@ -19,19 +19,13 @@ var {
 var TodoReact = React.createClass({
   render: function() {
     var name = function (param) {
-      return 'steve ' + param;
+      return 'Steve ' + param;
     }
     return (
       <View style={styles.container}>
-        <WelcomeView message={name}></WelcomeView>
 
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <WelcomeView message={name} />
+
 
         <TodoList></TodoList>
       </View>
@@ -46,11 +40,7 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+
 });
 
 AppRegistry.registerComponent('TodoReact', () => TodoReact);

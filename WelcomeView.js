@@ -12,7 +12,7 @@ var WelcomeView = React.createClass({
     console.log('MY PROPS', this.props);
     return (
       <Text style={styles.welcome}>
-        Welcome to {this.props.message('my value from inside')}!
+        Welcome to {this.props.message('React native!!!!')}!
       </Text>
     );
   }
@@ -23,6 +23,7 @@ var styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    marginTop: 200
   }
 });
 

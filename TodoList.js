@@ -9,7 +9,6 @@ var {
   View
 } = React;
 
-
 var FAKE_DATA = [
   {title: 'hello', foo: 'bar'},
   {title: 'foobar'},
@@ -17,15 +16,11 @@ var FAKE_DATA = [
   {title: 'last'}
 ];
 
-
-
-
 var TodoList = React.createClass({
   getInitialState: function () {
-    var documentationFakeData = ['row 1', 'row 2', 'row 3'];
     var ds = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2
-    })
+    });
     return {
       dataSource: ds.cloneWithRows(FAKE_DATA)
     };
