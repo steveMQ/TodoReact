@@ -17,13 +17,12 @@ var {
   NavigatorIOS
 } = React;
 
-
 var TodoReact = React.createClass({
 
-  showAddTodoItem() {
-    this.props.navigator.push({
-      title: 'Add New Task',
-      component: AddTodoItem,
+  showAddTodoItem: function() {
+    this.refs.nav.push({
+      title: 'Add new task',
+      component: AddTodoItem
     });
   },
 
@@ -34,12 +33,13 @@ var TodoReact = React.createClass({
     return (
       <NavigatorIOS
         style={styles.container}
+        ref='nav'
         initialRoute={{
           title: 'Task List!',
           component: TodoList,
           rightButtonTitle: '+',
           onRightButtonPress: () => {
-            this.showAddTodoItem;
+            this.showAddTodoItem();
           }
         }}
         />

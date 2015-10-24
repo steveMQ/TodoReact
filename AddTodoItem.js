@@ -6,7 +6,6 @@ var {
   StyleSheet,
   Text,
   View,
-  Compoenent,
   TextInput
 } = React;
 
@@ -18,15 +17,18 @@ var styles = StyleSheet.create({
   },
   text: {
     color: 'blue'
+  },
+  container: {
+    flex: 1
   }
 
 });
 
 var AddTodoItem = React.createClass({
 
-  render() {
+  render: function() {
     return(
-      <View>
+      <View style={styles.container}>
         <TextInput
           style={styles.textInput}
         />
