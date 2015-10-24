@@ -7,6 +7,7 @@
 var React = require('react-native');
 var WelcomeView = require('./WelcomeView');
 var TodoList = require('./TodoList');
+var AddTodoItem = require('./AddTodoItem');
 
 var {
   AppRegistry,
@@ -18,6 +19,14 @@ var {
 
 
 var TodoReact = React.createClass({
+
+  showAddTodoItem() {
+    this.props.navigator.push({
+      title: 'Add New Task',
+      component: AddTodoItem,
+    });
+  },
+
   render: function() {
     var name = function (param) {
       return 'Steve ' + param;
@@ -30,7 +39,7 @@ var TodoReact = React.createClass({
           component: TodoList,
           rightButtonTitle: '+',
           onRightButtonPress: () => {
-            console.log('Doth hath worketh!');
+            this.showAddTodoItem;
           }
         }}
         />

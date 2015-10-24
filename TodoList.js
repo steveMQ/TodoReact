@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var AddTodoItem = require('./AddTodoItem')
 
 var {
   StyleSheet,
@@ -46,6 +47,7 @@ var styles = StyleSheet.create({
 });
 
 var TodoList = React.createClass({
+
   getInitialState: function () {
     var ds = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2
@@ -74,7 +76,7 @@ var TodoList = React.createClass({
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
         style={styles.listView}
-      ></ListView>
+      />
     );
   }
 });
