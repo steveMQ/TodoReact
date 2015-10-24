@@ -6,15 +6,44 @@ var {
   StyleSheet,
   Text,
   ListView,
-  View
+  View,
+  TouchableHighlight
 } = React;
 
 var FAKE_DATA = [
-  {title: 'hello', foo: 'bar'},
+  {title: 'hello'},
   {title: 'foobar'},
   {title: 'last'},
   {title: 'last'}
 ];
+
+var styles = StyleSheet.create({
+
+  offset: {
+    height: 100,
+    backgroundColor: 'lime'
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    padding:10,
+
+  },
+  separator: {
+    height: 1,
+    backgroundColor: 'slategray'
+  },
+  listView: {
+    backgroundColor: '#F5FCFF'
+  },
+  text: {
+    color: '#000'
+  },
+
+});
 
 var TodoList = React.createClass({
   getInitialState: function () {
@@ -27,7 +56,16 @@ var TodoList = React.createClass({
   },
 
   renderRow: function(theData) {
-    return <Text>{theData.title}</Text>
+    return(
+      <TouchableHighlight underlayColor='#dddddd'>
+        <View>
+            <View style={styles.container}>
+              <Text style={styles.text}>{theData.title}</Text>
+            </View>
+            <View style={styles.separator}></View>
+          </View>
+      </TouchableHighlight>
+    );
   },
 
   render: function() {
@@ -35,11 +73,12 @@ var TodoList = React.createClass({
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
+        style={styles.listView}
       ></ListView>
     );
   }
 });
 
-var styles = StyleSheet.create({});
+
 
 module.exports = TodoList;

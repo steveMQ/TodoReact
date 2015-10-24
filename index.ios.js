@@ -13,6 +13,7 @@ var {
   StyleSheet,
   Text,
   View,
+  NavigatorIOS
 } = React;
 
 
@@ -22,24 +23,25 @@ var TodoReact = React.createClass({
       return 'Steve ' + param;
     }
     return (
-      <View style={styles.container}>
-
-        <WelcomeView message={name} />
-
-
-        <TodoList></TodoList>
-      </View>
+      <NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          title: 'Task List!',
+          component: TodoList,
+          rightButtonTitle: '+',
+          onRightButtonPress: () => {
+            console.log('Doth hath worketh!');
+          }
+        }}
+        />
     );
   }
 });
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
+    flex:1,
+  }
 
 });
 
