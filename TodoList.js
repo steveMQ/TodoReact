@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var AddTodoItem = require('./AddTodoItem')
+var DataService = require('./DataService');
 
 var {
   StyleSheet,

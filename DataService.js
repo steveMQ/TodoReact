@@ -6,12 +6,17 @@ var {
 
 } = React;
 
-var DataService = React.createClass({
+var DataService = ({
 
-  var todoItems = [];
+  var todoItems = [
+    {title: 'item1'},
+    {title: 'item2'},
+    {title: 'item3'},
+    {title: 'item4'}
+  ];
 
-  addTodo: function(){
-
+  addTodo: function(data){
+    todoItems.push(data);
   },
 
   removeTodo: function(){
@@ -19,7 +24,7 @@ var DataService = React.createClass({
   },
 
   editTodo: function(){
-    
+
   }
 
 });
