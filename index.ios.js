@@ -23,7 +23,7 @@ var TodoReact = React.createClass({
     this.refs.nav.push({
       title: 'Add new task',
       component: AddTodoItem,
-      
+
     });
   },
 
@@ -31,6 +31,7 @@ var TodoReact = React.createClass({
     var name = function (param) {
       return 'Steve ' + param;
     }
+    
     return (
       <NavigatorIOS
         style={styles.container}

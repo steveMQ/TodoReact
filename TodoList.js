@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react-native');
-var AddTodoItem = require('./AddTodoItem')
 var DataService = require('./DataService');
 
 var {
@@ -18,6 +17,8 @@ var FAKE_DATA = [
   {title: 'last'},
   {title: 'last'}
 ];
+
+var TodoData = DataService.returnTodoItems();
 
 var styles = StyleSheet.create({
 
@@ -54,7 +55,7 @@ var TodoList = React.createClass({
       rowHasChanged: (row1, row2) => row1 !== row2
     });
     return {
-      dataSource: ds.cloneWithRows(FAKE_DATA)
+      dataSource: ds.cloneWithRows(TodoData)
     };
   },
 
@@ -63,7 +64,7 @@ var TodoList = React.createClass({
       <TouchableHighlight underlayColor='#dddddd'>
         <View>
             <View style={styles.container}>
-              <Text style={styles.text}>{theData.title}</Text>
+              <Text style={styles.text}>{TodoData}</Text>
             </View>
             <View style={styles.separator}></View>
           </View>
@@ -79,6 +80,8 @@ var TodoList = React.createClass({
         style={styles.listView}
       />
     );
+
+
   }
 });
 

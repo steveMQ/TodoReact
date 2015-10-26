@@ -1,30 +1,23 @@
-'use strict';
+var DataService = {};
 
-var React = require('react-native');
+var TodoItems = [];
 
-var {
+DataService.addTodo = function(item) {
+  TodoItems.push(item);
+};
 
-} = React;
+DataService.removeTodo = function(item) {
+  // TodoItems.splice(index: 0);
+};
 
-var DataService = ({
+DataService.editTodo = function(item) {
+  //edit code goes here
+};
 
-  var todoItems = [
-    {title: 'item1'},
-    {title: 'item2'},
-    {title: 'item3'},
-    {title: 'item4'}
-  ];
+DataService.returnTodoItems = function() {
+  console.log('the todo items are...', TodoItems);
+  return TodoItems;
+};
 
-  addTodo: function(data){
-    todoItems.push(data);
-  },
-
-  removeTodo: function(){
-
-  },
-
-  editTodo: function(){
-
-  }
-
-});
+//the public api
+module.exports = DataService;

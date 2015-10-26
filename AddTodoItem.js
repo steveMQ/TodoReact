@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var Button = require('react-native-button');
+var DataService = require('./DataService');
 
 var {
   StyleSheet,
@@ -39,15 +40,30 @@ var styles = StyleSheet.create({
 });
 
 var AddTodoItem = React.createClass({
-
+  getInitialState: function () {
+    return {text: ''};
+  },
   render: function() {
-    console.log('this is aactually happening');
     return (
       <View style={styles.container}>
-        <TextInput style={styles.textInput} />
-        <Button style={styles.button}>Add Task</Button>
+        <TextInput
+          style={styles.textInput}
+          value={this.state.text}
+          onChangeText={(value) => this.setState({text: value})}
+         />
+        <Button
+          style={styles.button}
+          onPress={this._buttonWasPressed}>
+            Add Task
+        </Button>
       </View>
     );
+  },
+
+  _buttonWasPressed: function() {
+    console.log('I pressed the add function button!', this.state.text);
+    DataService.addTodo(this.state.text);
+    DataService.returnTodoItems();
   }
 
 });
