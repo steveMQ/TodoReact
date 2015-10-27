@@ -11,14 +11,14 @@ var {
   TouchableHighlight
 } = React;
 
-var FAKE_DATA = [
-  {title: 'hello'},
-  {title: 'foobar'},
-  {title: 'last'},
-  {title: 'last'}
-];
+// var FAKE_DATA = [
+//   {title: 'hello'},
+//   {title: 'foobar'},
+//   {title: 'last'},
+//   {title: 'last'}
+// ];
 
-var TodoData = DataService.returnTodoItems();
+var TodoData = [];
 
 var styles = StyleSheet.create({
 
@@ -59,12 +59,17 @@ var TodoList = React.createClass({
     };
   },
 
-  renderRow: function(theData) {
+  componentDidMount: function() {
+    TodoData = DataService.returnTodoItems();
+    console.log('this is the componentDidMount function!');
+  },
+
+  renderRow: function(TodoData) {
     return(
       <TouchableHighlight underlayColor='#dddddd'>
         <View>
             <View style={styles.container}>
-              <Text style={styles.text}>{TodoData}</Text>
+              <Text style={styles.text}>{TodoData.task}</Text>
             </View>
             <View style={styles.separator}></View>
           </View>

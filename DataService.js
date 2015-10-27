@@ -3,7 +3,7 @@ var DataService = {};
 var TodoItems = [];
 
 DataService.addTodo = function(item) {
-  TodoItems.push(item);
+  TodoItems.push({task: item});
 };
 
 DataService.removeTodo = function(item) {

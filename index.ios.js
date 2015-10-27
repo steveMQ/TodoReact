@@ -23,15 +23,20 @@ var TodoReact = React.createClass({
     this.refs.nav.push({
       title: 'Add new task',
       component: AddTodoItem,
+      passProps: {
+        ref: this.steveCallback,
+      }
 
     });
+  },
+  steveCallback: function() {
+    console.log('I HAVE MADE IT BACK ALIVE!!');
   },
 
   render: function() {
     var name = function (param) {
       return 'Steve ' + param;
     }
-    
     return (
       <NavigatorIOS
         style={styles.container}
@@ -42,7 +47,7 @@ var TodoReact = React.createClass({
           rightButtonTitle: '+',
           onRightButtonPress: () => {
             this.showAddTodoItem();
-          }
+          },
         }}
         />
     );
