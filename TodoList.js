@@ -23,29 +23,32 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'rgba(0, 183, 255, 0.6);',
     padding:10,
+    paddingTop:20,
+    paddingBottom: 20
 
   },
   separator: {
     height: 1,
-    backgroundColor: 'slategray'
+    backgroundColor: 'rgba(0, 183, 255, 0.9);'
   },
   listView: {
     backgroundColor: '#F5FCFF'
   },
   text: {
-    color: '#000'
+    color: '#708090'
   },
 
+});
+
+var ds = new ListView.DataSource({
+  rowHasChanged: (row1, row2) => row1.id !== row2.id
 });
 
 var TodoList = React.createClass({
 
   getInitialState: function () {
-    var ds = new ListView.DataSource({
-      rowHasChanged: (row1, row2) => row1 !== row2
-    });
     return {
       dataSource: ds
     };
@@ -53,7 +56,7 @@ var TodoList = React.createClass({
 
   refreshListView: function() {
     var todoData = DataService.returnTodoItems();
-    this.state.dataSource = this.state.dataSource.cloneWithRows(todoData);
+    this.state.dataSource = ds.cloneWithRows(todoData);
     this.setState(this.state);
   },
 

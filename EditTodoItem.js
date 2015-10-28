@@ -70,9 +70,11 @@ var EditTodoItem = React.createClass({
     );
   },
   _buttonWasPressed: function() {
-    // var currentItem = this.props.route.passProps.theItem;
-    // DataService.removeTodo(currentItem);
-    // this.props.navigator.pop();
+    var currentItem = this.props.route.passProps.theItem;
+    var newText = this.state.text;
+    DataService.editTodo(currentItem, newText);
+
+    this.props.navigator.pop();
   },
   removeButtonPressed: function() {
     var currentItem = this.props.route.passProps.theItem;

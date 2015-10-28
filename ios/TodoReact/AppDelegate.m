@@ -30,9 +30,15 @@
    * `inet` value under `en0:`) and make sure your computer and iOS device are
    * on the same Wi-Fi network.
    */
-
+  
+  /* Use this one for local dev */
   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
-
+  
+  /* Use this one for iPhone dev */
+//  jsCodeLocation = [NSURL URLWithString:@"http://10.0.0.213:8081/index.ios.bundle?platform=ios&dev=true"];
+  
+  
+  
   /**
    * OPTION 2
    * Load from pre-bundled file on disk. To re-generate the static bundle
