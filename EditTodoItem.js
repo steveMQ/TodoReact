@@ -39,10 +39,15 @@ var styles = StyleSheet.create({
   }
 });
 
-var AddTodoItem = React.createClass({
+var EditTodoItem = React.createClass({
   getInitialState: function () {
-    return {text: ''};
+    var currentItem = this.props.route.passProps.theItem;
+    return {text: currentItem.task};
   },
+  componentDidMount: function() {
+    console.log('from the previous view..', this.props.route.passProps.task);
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
@@ -54,16 +59,27 @@ var AddTodoItem = React.createClass({
         <Button
           style={styles.button}
           onPress={this._buttonWasPressed}>
-            Add Task
+            Save Task
+        </Button>
+        <Button
+          style={styles.button}
+          onPress={this.removeButtonPressed}>
+            Remove
         </Button>
       </View>
     );
   },
   _buttonWasPressed: function() {
-    DataService.addTodo(this.state.text);
-    this.props.navigator.pop();
+    // var currentItem = this.props.route.passProps.theItem;
+    // DataService.removeTodo(currentItem);
+    // this.props.navigator.pop();
   },
+  removeButtonPressed: function() {
+    var currentItem = this.props.route.passProps.theItem;
+    DataService.removeTodo(currentItem);
+    this.props.navigator.pop();
+  }
 
 });
 
-module.exports = AddTodoItem;
+module.exports = EditTodoItem;

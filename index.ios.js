@@ -22,7 +22,10 @@ var TodoReact = React.createClass({
   showAddTodoItem: function() {
     this.refs.nav.push({
       title: 'Add new task',
-      component: AddTodoItem
+      component: AddTodoItem,
+      passProps: {
+        origin: 'add'
+      }
     });
   },
 

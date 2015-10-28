@@ -3,7 +3,7 @@ var EventEmitter = require('event-emitter');
 
 var DataService = {};
 
-var TodoItems = [];
+var TodoItems = [{task: 'pidgeons'}];
 
 DataService.addTodo = function(item) {
   TodoItems.push({task: item});
@@ -11,11 +11,20 @@ DataService.addTodo = function(item) {
 };
 
 DataService.removeTodo = function(item) {
-  // TodoItems.splice(index: 0);
+  for (var i = 0; i < TodoItems.length; i++) {
+    if (TodoItems[i] == item) {
+      TodoItems.splice(i, 1);
+      console.log('we found a match!');
+    }
+    else {
+      console.log('we did not find a match');
+    }
+  }
+  this.emit('changed');
 };
 
 DataService.editTodo = function(item) {
-  //edit code goes here
+
 };
 
 DataService.returnTodoItems = function() {

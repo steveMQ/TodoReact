@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var DataService = require('./DataService');
+var EditTodoItem = require('./EditTodoItem');
 
 var {
   StyleSheet,
@@ -60,16 +61,29 @@ var TodoList = React.createClass({
     DataService.on('changed', this.refreshListView);
     this.refreshListView();
   },
+  showEditTodoItem: function(item) {
+    this.props.navigator.push({
+      title: 'Edit task',
+      component: EditTodoItem,
+      passProps: {
+        theItem: item,
+        origin: 'edit'
+      }
+    });
+  },
+
 
   renderRow: function(item) {
     return(
-      <TouchableHighlight underlayColor='#dddddd'>
+      <TouchableHighlight
+        underlayColor='#dddddd'
+        onPress={() => this.showEditTodoItem(item)}>
         <View>
             <View style={styles.container}>
               <Text style={styles.text}>{item.task}</Text>
             </View>
             <View style={styles.separator}></View>
-          </View>
+        </View>
       </TouchableHighlight>
     );
   },
