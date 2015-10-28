@@ -37,7 +37,6 @@ var styles = StyleSheet.create({
   button: {
     marginTop:50
   }
-
 });
 
 var AddTodoItem = React.createClass({
@@ -58,19 +57,13 @@ var AddTodoItem = React.createClass({
             Add Task
         </Button>
       </View>
-
     );
   },
   _buttonWasPressed: function() {
     console.log('I pressed the add task button!', this.state.text);
     DataService.addTodo(this.state.text);
-    this.navigateBack();
-  },
-  navigateBack: function() {
-    console.log('im about to travel back in time..');
     this.props.navigator.pop();
   },
-
 
 });
 

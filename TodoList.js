@@ -11,15 +11,6 @@ var {
   TouchableHighlight
 } = React;
 
-// var FAKE_DATA = [
-//   {title: 'hello'},
-//   {title: 'foobar'},
-//   {title: 'last'},
-//   {title: 'last'}
-// ];
-
-var TodoData = [];
-
 var styles = StyleSheet.create({
 
   offset: {
@@ -55,21 +46,27 @@ var TodoList = React.createClass({
       rowHasChanged: (row1, row2) => row1 !== row2
     });
     return {
-      dataSource: ds.cloneWithRows(TodoData)
+      dataSource: ds
     };
   },
 
-  componentDidMount: function() {
-    TodoData = DataService.returnTodoItems();
-    console.log('this is the componentDidMount function!');
+  refreshListView: function() {
+    var todoData = DataService.returnTodoItems();
+    this.state.dataSource = this.state.dataSource.cloneWithRows(todoData);
+    this.setState(this.state);
   },
 
-  renderRow: function(TodoData) {
+  componentDidMount: function() {
+    DataService.on('changed', this.refreshListView);
+    this.refreshListView();
+  },
+
+  renderRow: function(item) {
     return(
       <TouchableHighlight underlayColor='#dddddd'>
         <View>
             <View style={styles.container}>
-              <Text style={styles.text}>{TodoData.task}</Text>
+              <Text style={styles.text}>{item.task}</Text>
             </View>
             <View style={styles.separator}></View>
           </View>
@@ -85,11 +82,7 @@ var TodoList = React.createClass({
         style={styles.listView}
       />
     );
-
-
   }
 });
-
-
 
 module.exports = TodoList;

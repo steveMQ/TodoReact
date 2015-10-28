@@ -1,9 +1,13 @@
+//example of an Observer Pattern
+var EventEmitter = require('event-emitter');
+
 var DataService = {};
 
-var TodoItems = [];
+var TodoItems = [{task: 'foobar'}];
 
 DataService.addTodo = function(item) {
   TodoItems.push({task: item});
+  this.emit('changed');
 };
 
 DataService.removeTodo = function(item) {
@@ -18,6 +22,8 @@ DataService.returnTodoItems = function() {
   console.log('the todo items are...', TodoItems);
   return TodoItems;
 };
+
+DataService = EventEmitter(DataService);
 
 //the public api
 module.exports = DataService;
