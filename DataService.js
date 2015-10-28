@@ -3,7 +3,7 @@ var EventEmitter = require('event-emitter');
 
 var DataService = {};
 
-var TodoItems = [{task: 'foobar'}];
+var TodoItems = [];
 
 DataService.addTodo = function(item) {
   TodoItems.push({task: item});
