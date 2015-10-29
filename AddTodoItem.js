@@ -16,26 +16,27 @@ var {
 var styles = StyleSheet.create({
   textInput: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderColor: '#fff',
+    borderWidth: 2,
+    borderRadius: 3,
     marginLeft:20,
     marginRight:20,
     paddingLeft:20,
     paddingRight:20,
-    textAlign:'center'
-  },
-  text: {
-    marginTop: 50,
-    color: 'black'
+    textAlign:'center',
+    color: '#fff'
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop:150,
     alignItems: 'center',
+    backgroundColor: '#5a6773'
 
   },
   button: {
-    marginTop:50
+    marginTop:40,
+    color: '#fff',
+    flex: 2
   }
 });
 

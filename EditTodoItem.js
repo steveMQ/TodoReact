@@ -16,27 +16,42 @@ var {
 var styles = StyleSheet.create({
   textInput: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderColor: '#fff',
+    borderWidth: 2,
+    borderRadius: 3,
     marginLeft:20,
     marginRight:20,
     paddingLeft:20,
     paddingRight:20,
-    textAlign:'center'
-  },
-  text: {
-    marginTop: 50,
-    color: 'black'
+    textAlign:'center',
+    color: '#fff',
+
+
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop:150,
     alignItems: 'center',
+    backgroundColor: '#5a6773'
+  },
+  buttonHolder: {
+    alignItems:'center',
+    flexDirection:'row',
+    flex:0
+  },
+  leftButton: {
+    padding:20,
+    paddingTop:40,
+    paddingRight:40,
+    color: '#fff'
 
   },
-  button: {
-    marginTop:50
-  }
+  rightButton: {
+    padding:20,
+    paddingTop:40,
+    paddingLeft:40,
+    color:'#fff'
+  },
 });
 
 var EditTodoItem = React.createClass({
@@ -47,7 +62,6 @@ var EditTodoItem = React.createClass({
   componentDidMount: function() {
     console.log('from the previous view..', this.props.route.passProps.task);
   },
-
   render: function() {
     return (
       <View style={styles.container}>
@@ -56,16 +70,20 @@ var EditTodoItem = React.createClass({
           value={this.state.text}
           onChangeText={(value) => this.setState({text: value})}
          />
-        <Button
-          style={styles.button}
-          onPress={this._buttonWasPressed}>
-            Save Task
-        </Button>
-        <Button
-          style={styles.button}
-          onPress={this.removeButtonPressed}>
-            Remove
-        </Button>
+       <View style={styles.buttonHolder}>
+         <Button
+             style={styles.leftButton}
+             onPress={this._buttonWasPressed}>
+               Save Task
+           </Button>
+           <Button
+             style={styles.rightButton}
+             onPress={this.removeButtonPressed}>
+               Remove
+          </Button>
+       </View>
+
+
       </View>
     );
   },

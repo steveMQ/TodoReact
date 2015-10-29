@@ -14,30 +14,29 @@ var {
 
 var styles = StyleSheet.create({
 
-  offset: {
-    height: 100,
-    backgroundColor: 'lime'
-  },
   container: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 183, 255, 0.6);',
+    backgroundColor: 'rgba(0, 183, 255, 0.0)',
     padding:10,
     paddingTop:20,
     paddingBottom: 20
 
   },
   separator: {
-    height: 1,
-    backgroundColor: 'rgba(0, 183, 255, 0.9);'
+    height: 2,
+    backgroundColor: '#fff'
   },
   listView: {
-    backgroundColor: '#F5FCFF'
+    // backgroundColor: 'rgba(0, 183, 255, 0.6)',
+    backgroundColor: '#5a6773'
+
   },
   text: {
-    color: '#708090'
+    color: '#fff',
+    fontSize: 16
   },
 
 });
@@ -79,7 +78,7 @@ var TodoList = React.createClass({
   renderRow: function(item) {
     return(
       <TouchableHighlight
-        underlayColor='#dddddd'
+        underlayColor='rgba(0,0,0,0.3)'
         onPress={() => this.showEditTodoItem(item)}>
         <View>
             <View style={styles.container}>
@@ -93,6 +92,7 @@ var TodoList = React.createClass({
 
   render: function() {
     return (
+
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}

@@ -4,9 +4,10 @@ var EventEmitter = require('event-emitter');
 var DataService = {};
 
 var TodoItems = [
-  {task: 'pidgeons'},
-  {task: 'buddy is a cat'},
+  {task: 'Learn React-Native'},
+  {task: 'Play w/ Buddy. Good kitty.'},
   {task: 'KILL THE WOODPECKER'},
+  {task: 'Buy a 2013 Mazda Mx-5'},
 
 ];
 

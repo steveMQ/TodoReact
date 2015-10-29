@@ -37,10 +37,13 @@ var TodoReact = React.createClass({
       <NavigatorIOS
         style={styles.container}
         ref='nav'
+        tintColor='#fff'
+        titleTextColor='#fff'
+        barTintColor='#5a6773'
         initialRoute={{
-          title: 'Task List!',
+          title: 'Task List',
           component: TodoList,
-          rightButtonTitle: '+',
+          rightButtonTitle: 'New',
           onRightButtonPress: () => {
             this.showAddTodoItem();
           },
@@ -53,6 +56,7 @@ var TodoReact = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex:1,
+
   }
 });
 

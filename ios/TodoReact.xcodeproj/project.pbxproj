@@ -612,6 +612,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.steveQReact;
 				PRODUCT_NAME = TodoReact;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -632,6 +633,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.steveQReact;
 				PRODUCT_NAME = TodoReact;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
