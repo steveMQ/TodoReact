@@ -11,10 +11,6 @@ var TodoItems = [
 
 ];
 
-function removeOrUpdate() {
-
-}
-
 DataService.addTodo = function(item) {
   var newItem = {task: item}
   TodoItems.push(newItem);
