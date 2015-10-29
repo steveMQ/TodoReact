@@ -64,7 +64,7 @@ var EditTodoItem = React.createClass({
     return {text: currentItem.task};
   },
   componentDidMount: function() {
-    console.log('from the previous view..', this.props.route.passProps.task);
+    
   },
   render: function() {
     return (

@@ -30,9 +30,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   listView: {
-    // backgroundColor: 'rgba(0, 183, 255, 0.6)',
     backgroundColor: '#5a6773'
-
   },
   text: {
     color: '#fff',
