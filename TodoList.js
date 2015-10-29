@@ -3,6 +3,7 @@
 var React = require('react-native');
 var DataService = require('./DataService');
 var EditTodoItem = require('./EditTodoItem');
+var Button = require('react-native-button');
 
 var {
   StyleSheet,
@@ -17,13 +18,17 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 183, 255, 0.0)',
+    // backgroundColor:'lime',
     padding:10,
     paddingTop:20,
     paddingBottom: 20
 
+  },
+  completedContainer: {
+    backgroundColor:'lime'
   },
   separator: {
     height: 2,
@@ -35,9 +40,12 @@ var styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 18,
-    
-
   },
+  completeButton: {
+    fontSize:28,
+    color: '#fff',
+    marginRight:40
+  }
 
 });
 
@@ -74,14 +82,33 @@ var TodoList = React.createClass({
     });
   },
 
+  completeButtonWasPressed: function(item) {
+    console.log('the complete button has been pressed!', item.task);
+
+
+
+    var editItem = Object.assign({}, item);
+    editItem.isCompleted = true;
+    DataService.editTodo(item, editItem);
+  },
+
 
   renderRow: function(item) {
+    var completedStyle = {};
+    if (item.isCompleted) {
+      completedStyle = styles.completedContainer;
+    }
+
     return(
       <TouchableHighlight
         underlayColor='rgba(0,0,0,0.3)'
         onPress={() => this.showEditTodoItem(item)}>
         <View>
-            <View style={styles.container}>
+            <View style={[styles.container, completedStyle]}>
+              <Button
+                style={styles.completeButton}
+                onPress={() => this.completeButtonWasPressed(item)}
+              >X</Button>
               <Text style={styles.text}>{item.task}</Text>
             </View>
             <View style={styles.separator}></View>

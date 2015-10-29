@@ -8,11 +8,10 @@ var TodoItems = [
   {task: 'Play w/ Buddy. Good kitty.', isCompleted:false},
   {task: 'KILL THE WOODPECKER', isCompleted:false},
   {task: 'Buy a 2013 Mazda Mx-5', isCompleted:false},
-
 ];
 
 DataService.addTodo = function(item) {
-  var newItem = {task: item}
+  var newItem = {task: item, isCompleted:false}
   TodoItems.push(newItem);
   console.log('added', newItem);
   this.emit('changed');
@@ -29,13 +28,17 @@ DataService.removeTodo = function(item) {
   }
 };
 
-DataService.editTodo = function(item, newText) {
-  var newItem = {task: newText};
+/**
+ * Updates a todo item
+ * @param {Object} item - The original item
+ * @param {Object} edtItem - The edited item version
+ */
+DataService.editTodo = function(item, editItem) {
   for (var i = 0; i < TodoItems.length; i++) {
     if (TodoItems[i] == item) {
       console.log('removed', item);
-      TodoItems.splice(i, 1, newItem);
-      console.log('added', newItem);
+      TodoItems.splice(i, 1, editItem);
+      console.log('added', editItem);
       this.emit('changed');
       return;
     }

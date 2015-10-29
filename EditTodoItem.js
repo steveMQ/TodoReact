@@ -26,9 +26,7 @@ var styles = StyleSheet.create({
     paddingRight:20,
     textAlign:'center',
     color: '#fff',
-    
     fontSize: 18,
-
   },
   container: {
     flex: 1,
@@ -45,15 +43,12 @@ var styles = StyleSheet.create({
     padding:20,
     paddingRight:40,
     color: '#fff',
-
     fontSize: 20,
-
   },
   rightButton: {
     padding:20,
     paddingLeft:40,
     color:'#fff',
-
     fontSize: 20,
   },
 });
@@ -61,18 +56,18 @@ var styles = StyleSheet.create({
 var EditTodoItem = React.createClass({
   getInitialState: function () {
     var currentItem = this.props.route.passProps.theItem;
-    return {text: currentItem.task};
-  },
-  componentDidMount: function() {
-
+    return Object.assign({}, currentItem);
   },
   render: function() {
     return (
       <View style={styles.container}>
         <TextInput
           style={styles.textInput}
-          value={this.state.text}
-          onChangeText={(value) => this.setState({text: value})}
+          value={this.state.task}
+          onChangeText={(value) => {
+            this.state.task = value
+            this.setState(this.state)
+          }}
          />
        <View style={styles.buttonHolder}>
          <Button
@@ -86,16 +81,12 @@ var EditTodoItem = React.createClass({
                Remove
           </Button>
        </View>
-
-
       </View>
     );
   },
   _buttonWasPressed: function() {
     var currentItem = this.props.route.passProps.theItem;
-    var newText = this.state.text;
-    DataService.editTodo(currentItem, newText);
-
+    DataService.editTodo(currentItem, this.state);
     this.props.navigator.pop();
   },
   removeButtonPressed: function() {
