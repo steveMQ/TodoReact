@@ -41,10 +41,10 @@
    */
   
   /* Use this one for local dev */
-  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+  //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
   
   /* Use this one for iPhone dev */
-  //jsCodeLocation = [NSURL URLWithString:@"http://10.0.0.213:8081/index.ios.bundle?platform=ios&dev=true"];
+  jsCodeLocation = [NSURL URLWithString:@"http://10.0.0.213:8081/index.ios.bundle?platform=ios&dev=true"];
   
   
   

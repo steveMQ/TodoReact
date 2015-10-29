@@ -21,7 +21,6 @@ var styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 183, 255, 0.0)',
-    // backgroundColor:'lime',
     padding:10,
     paddingTop:20,
     paddingBottom: 20
@@ -40,11 +39,13 @@ var styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 18,
+    marginLeft:20
   },
   completeButton: {
     fontSize:28,
     color: '#fff',
-    marginRight:40
+    paddingLeft:20,
+    paddingRight:20
   }
 
 });
@@ -83,22 +84,17 @@ var TodoList = React.createClass({
   },
 
   completeButtonWasPressed: function(item) {
-    console.log('the complete button has been pressed!', item.task);
-
-
 
     var editItem = Object.assign({}, item);
-    editItem.isCompleted = true;
+    editItem.isCompleted = !editItem.isCompleted;
     DataService.editTodo(item, editItem);
   },
-
 
   renderRow: function(item) {
     var completedStyle = {};
     if (item.isCompleted) {
       completedStyle = styles.completedContainer;
     }
-
     return(
       <TouchableHighlight
         underlayColor='rgba(0,0,0,0.3)'
@@ -119,7 +115,6 @@ var TodoList = React.createClass({
 
   render: function() {
     return (
-
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
