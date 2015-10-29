@@ -40,6 +40,7 @@ var TodoReact = React.createClass({
         tintColor='#fff'
         titleTextColor='#fff'
         barTintColor='#5a6773'
+        shadowHidden='true'
         initialRoute={{
           title: 'Task List',
           component: TodoList,
@@ -56,7 +57,6 @@ var TodoReact = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex:1,
-
   }
 });
 
