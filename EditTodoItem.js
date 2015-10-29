@@ -21,11 +21,13 @@ var styles = StyleSheet.create({
     borderRadius: 3,
     marginLeft:20,
     marginRight:20,
+    marginBottom:50,
     paddingLeft:20,
     paddingRight:20,
     textAlign:'center',
     color: '#fff',
-
+    fontFamily:'SFNS Display',
+    fontSize: 18,
 
   },
   container: {
@@ -41,16 +43,18 @@ var styles = StyleSheet.create({
   },
   leftButton: {
     padding:20,
-    paddingTop:40,
     paddingRight:40,
-    color: '#fff'
+    color: '#fff',
+    fontFamily:'SFNS Display',
+    fontSize: 20,
 
   },
   rightButton: {
     padding:20,
-    paddingTop:40,
     paddingLeft:40,
-    color:'#fff'
+    color:'#fff',
+    fontFamily:'SFNS Display',
+    fontSize: 20,
   },
 });
 
