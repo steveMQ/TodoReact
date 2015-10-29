@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
     paddingRight:20,
     textAlign:'center',
     color: '#fff',
-    fontFamily:'SFNS Display',
+    
     fontSize: 18,
 
   },
@@ -45,7 +45,7 @@ var styles = StyleSheet.create({
     padding:20,
     paddingRight:40,
     color: '#fff',
-    fontFamily:'SFNS Display',
+
     fontSize: 20,
 
   },
@@ -53,7 +53,7 @@ var styles = StyleSheet.create({
     padding:20,
     paddingLeft:40,
     color:'#fff',
-    fontFamily:'SFNS Display',
+
     fontSize: 20,
   },
 });
@@ -64,7 +64,7 @@ var EditTodoItem = React.createClass({
     return {text: currentItem.task};
   },
   componentDidMount: function() {
-    
+
   },
   render: function() {
     return (

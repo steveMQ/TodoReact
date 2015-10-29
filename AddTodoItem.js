@@ -25,7 +25,7 @@ var styles = StyleSheet.create({
     paddingRight:20,
     textAlign:'center',
     color: '#fff',
-    fontFamily:'SFNS Display',
+
     fontSize: 18,
   },
   container: {
@@ -39,7 +39,7 @@ var styles = StyleSheet.create({
     marginTop:40,
     color: '#fff',
     flex: 2,
-    fontFamily:'SFNS Display',
+    
     fontSize: 20,
   }
 });
