@@ -25,7 +25,6 @@ var styles = StyleSheet.create({
     paddingRight:20,
     textAlign:'center',
     color: '#fff',
-
     fontSize: 18,
   },
   container: {
@@ -33,13 +32,11 @@ var styles = StyleSheet.create({
     paddingTop:150,
     alignItems: 'center',
     backgroundColor: '#5a6773'
-
   },
   button: {
     marginTop:40,
     color: '#fff',
     flex: 2,
-    
     fontSize: 20,
   }
 });
