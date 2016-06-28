@@ -7,7 +7,8 @@ var TodoItems = [
   {task: 'Learn React-Native', isCompleted:false},
   {task: 'Play w/ Buddy. Good kitty.', isCompleted:false},
   {task: 'KILL THE WOODPECKER', isCompleted:false},
-  {task: 'Buy a 2013 Mazda Mx-5', isCompleted:false},
+  {task: 'Buy a 2010 Mazda Mx-5', isCompleted:false},
+  {task: 'Play with Kushy', isCompleted:false}
 ];
 
 DataService.addTodo = function(item) {

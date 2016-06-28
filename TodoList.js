@@ -55,15 +55,17 @@ var styles = StyleSheet.create({
 });
 
 function sanitycheck(){
-  console.log("i pressed button");
+  console.log("the button was pressed");
 }
 
 //buttons
 var swipeoutBtns = [
+
+  //edit button
   {
-    text: 'Button',
+    text: 'Edit',
     color: '#fff',
-    backgroundColor: 'slate',
+
     onPress: sanitycheck
 
   }
@@ -115,20 +117,19 @@ var TodoList = React.createClass({
       completedStyle = styles.completedContainer;
     }
     return(
-      <TouchableHighlight
-        underlayColor='rgba(0,0,0,0.3)'
-        onPress={() => this.showEditTodoItem(item)}>
-        <View>
-          <Swipeout right={swipeoutBtns} autoClose={true}>
-            <View style={[styles.container, completedStyle]}>
-              <Text style={styles.text}>{item.task}</Text>
-            </View>
-          </Swipeout>
-
+      <Swipeout right={swipeoutBtns} autoClose={true} backgroundColor={'transparent'}>
+        <TouchableHighlight
+          underlayColor='rgba(0,0,0,0.3)'
+          onPress={() => this.showEditTodoItem(item)}>
+          <View>
+              <View style={[styles.container, completedStyle]}>
+                <Text style={styles.text}>{item.task}</Text>
+              </View>
 
             <View style={styles.separator}></View>
-        </View>
-      </TouchableHighlight>
+          </View>
+        </TouchableHighlight>
+      </Swipeout>
     );
   },
 
