@@ -5,6 +5,9 @@ var DataService = require('./DataService');
 var EditTodoItem = require('./EditTodoItem');
 var Button = require('react-native-button');
 
+var Swipeout = require('react-native-swipeout');
+
+
 var {
   StyleSheet,
   Text,
@@ -13,6 +16,7 @@ var {
   TouchableHighlight
 } = React;
 
+//styles
 var styles = StyleSheet.create({
 
   container: {
@@ -49,6 +53,21 @@ var styles = StyleSheet.create({
   }
 
 });
+
+function sanitycheck(){
+  console.log("i pressed button");
+}
+
+//buttons
+var swipeoutBtns = [
+  {
+    text: 'Button',
+    color: '#fff',
+    backgroundColor: 'slate',
+    onPress: sanitycheck
+
+  }
+]
 
 var ds = new ListView.DataSource({
   rowHasChanged: (row1, row2) => row1.id !== row2.id
@@ -100,13 +119,13 @@ var TodoList = React.createClass({
         underlayColor='rgba(0,0,0,0.3)'
         onPress={() => this.showEditTodoItem(item)}>
         <View>
+          <Swipeout right={swipeoutBtns} autoClose={true}>
             <View style={[styles.container, completedStyle]}>
-              <Button
-                style={styles.completeButton}
-                onPress={() => this.completeButtonWasPressed(item)}
-              >X</Button>
               <Text style={styles.text}>{item.task}</Text>
             </View>
+          </Swipeout>
+
+
             <View style={styles.separator}></View>
         </View>
       </TouchableHighlight>

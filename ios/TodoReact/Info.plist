@@ -4,7 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>steveFont.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialIcons.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
